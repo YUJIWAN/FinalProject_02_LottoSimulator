@@ -159,6 +159,12 @@
             android:layout_height="wrap_content"
             android:text="로또 한장 구매하기"/>
 
+        <Button
+            android:id="@+id/buyAutoLottoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="로또 자동 구매하기"/>
+
         <TextView
             android:id="@+id/useMoneyTxt"
             android:layout_marginTop="15dp"
@@ -174,6 +180,60 @@
             android:text="당첨금액 : 0원"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/firstRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="1등 : 0원"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/secondRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="2등 : 0원"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/thirdRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="3등 : 0원"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/fourtRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="4등 : 0원"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/fifthRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="5등 : 0회"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/noRankCountTxt"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="꽝 : 0회"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 
 
     </LinearLayout>

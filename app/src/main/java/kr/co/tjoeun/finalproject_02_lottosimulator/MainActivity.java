@@ -24,6 +24,13 @@ public class MainActivity extends BaseActivity {
     int bounsNum = 0;
     ActivityMainBinding binding = null;
 
+    int firstRankCount = 0;
+    int secondRankCount = 0;
+    int thirdRankCount = 0;
+    int fourthRankCount = 0;
+    int fifthRankCount = 0;
+    int noRankCount = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,6 +44,21 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.buyAutoLottoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                사용금액의 총액이 1천만원이 될때까지 반복
+
+                while (useMoneyAmount < 200000000){
+//                    당첨번호를 만들고 => 등수를 카운팅 반복
+                    makeWinLottoNum();
+                    checkLottoRank();
+                }
+
+
+            }
+        });
         binding.buyOneLottoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,21 +191,52 @@ public class MainActivity extends BaseActivity {
         if(correctCount == 6){
 //            1등
             winMoneyAmount += 1200000000;
+            firstRankCount++;
         }else if(correctCount == 5){
 //            2등인지 3등인지 재검사 => 보너스번호를 맞췄는지?
+//            => 내 번호중에 보너스번호와 같은게 있나?
+            boolean hasBonusNUm =false;
+
+
+            for(int myNum : myLottoNumArr){
+               if(myNum == bounsNum) {
+                   hasBonusNUm = true;
+                   break;
+               }
+            }
+            if(hasBonusNUm) {
+//          2등
+               winMoneyAmount += 75000000;
+               secondRankCount++;
+            }else{
+//                3등
+                winMoneyAmount += 1500000;
+                thirdRankCount++;
+
+            }
         }else if(correctCount == 4){
 //            4등
             winMoneyAmount += 50000;
+            fourthRankCount++;
         }else if (correctCount == 3) {
 //            5등
             useMoneyAmount -= 5000;
+            fifthRankCount++;
         }else{
 //            꽝
+            noRankCount++;
 
         }
 //      당첨금액 텍스트에도 반영
         binding.winMoneyTxt.setText(String.format("당첨금액 : %,d원",winMoneyAmount));
 
+//        당첨횟수들도 텍스트뷰에 반영
+        binding.firstRankCountTxt.setText(String.format("1등 : %,d회",firstRankCount));
+        binding.secondRankCountTxt.setText(String.format("2등 : %,d회",secondRankCount));
+        binding.thirdRankCountTxt.setText(String.format("3등 : %,d회",thirdRankCount));
+        binding.fourtRankCountTxt.setText(String.format("4등 : %,d회",fourthRankCount));
+        binding.fifthRankCountTxt.setText(String.format("5등 : %,d회",fifthRankCount));
+        binding.noRankCountTxt.setText(String.format("낙첨 : %,d회",noRankCount));
 
     }
 }
