@@ -78,7 +78,7 @@
                 android:text="\+"/>
 
             <TextView
-                android:id="@+id/bouseNumTxt"
+                android:id="@+id/bonusLottoNumTxt"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
