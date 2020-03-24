@@ -17,6 +17,7 @@ import kr.co.tjoeun.finalproject_02_lottosimulator.databinding.ActivityMainBindi
 public class MainActivity extends BaseActivity {
 
     long useMoneyAmount = 0;
+    int[] myLottoNumArr = {19, 9, 5, 11, 2, 26};
     List<TextView> winNumTxtList = new ArrayList<>();
     int[] winLottoNumArr = new int[6];
     int bounsNum = 0;
@@ -146,7 +147,35 @@ public class MainActivity extends BaseActivity {
 
         binding.useMoneyTxt.setText(String.format("사용 금액 : %,d원",useMoneyAmount));
 
+//        몇등인지?
+//        내 번호를 하나 들고 => 당첨번호 6개 돌아볼것임.
+//        얻어낼것? 몇개의 숫자를 맞췄는지.
 
+//        맞춘갯수를 담아줄 변수
+        int correctCount = 0;
+
+        for(int myNum = myLottoNumArr){
+            for(int winNum : winLottoNumArr){
+
+                if(myNum == winNum){
+                    correctCount++;
+                }
+
+            }
+        }
+
+//        correctCount의 값에 따라 등수를 판정.
+        if(correctCount == 6){
+//            1등
+        }else if(correctCount == 5){
+//            2등인지 3등인지 재검사 => 보너스번호를 맞췄는지?
+        }else if(correctCount == 4){
+//            4등
+        }else if (correctCount == 3) {
+//            5등
+        }else{
+//            꽝
+        }
 
     }
 }
