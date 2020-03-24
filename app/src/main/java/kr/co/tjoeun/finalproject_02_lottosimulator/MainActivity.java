@@ -16,6 +16,7 @@ import kr.co.tjoeun.finalproject_02_lottosimulator.databinding.ActivityMainBindi
 
 public class MainActivity extends BaseActivity {
 
+    long useMoneyAmount = 0;
     List<TextView> winNumTxtList = new ArrayList<>();
     int[] winLottoNumArr = new int[6];
     int bounsNum = 0;
@@ -41,6 +42,11 @@ public class MainActivity extends BaseActivity {
 
 //                당첨번호를 생성하고 => 텍스트뷰에 반영
                 makeWinLottoNum();
+//                몇등인지 판단하는 함수
+                checkLottoRank();
+
+
+
             }
         });
     }
@@ -133,5 +139,14 @@ public class MainActivity extends BaseActivity {
         }
 //        보너스 넘버가 생성됨.
         binding.bonusLottoNumTxt.setText(bounsNum+"");
+    }
+    void checkLottoRank(){
+//        돈을 천원 지불+등수 확인
+        useMoneyAmount += 1000;
+
+        binding.useMoneyTxt.setText(String.format("사용 금액 : %,d원",useMoneyAmount));
+
+
+
     }
 }
