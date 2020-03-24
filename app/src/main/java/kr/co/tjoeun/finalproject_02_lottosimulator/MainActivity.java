@@ -114,7 +114,24 @@ public class MainActivity extends BaseActivity {
 
         }
 
+//        보너스번호도 생성하자 => 1~45 당첨번호 중복X
 
+        while(true){
+            int randomNum = (int)(Math.random()*45+1);
 
+            boolean isDupOk = true;
+            for (int winNum : winLottoNumArr){
+                if (winNum == randomNum){
+                    isDupOk =false;
+                    break;
+                }
+            }
+            if(isDupOk){
+                bounsNum = randomNum;
+                break;
+            }
+        }
+//        보너스 넘버가 생성됨.
+        binding.bonusLottoNumTxt.setText(bounsNum+"");
     }
 }
